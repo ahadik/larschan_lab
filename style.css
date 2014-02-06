@@ -1,0 +1,103 @@
+@import url(http://fonts.googleapis.com/css?family=Lato:100,300,400,700,900,100italic,300italic,400italic);
+
+body{
+	margin: 0;
+}
+
+h1{
+	font-family: 'Lato', sans-serif;
+	-webkit-margin-before: 0.2em;
+	-webkit-margin-after: 0.67em;
+	font-size: 48px;
+}
+
+h2{
+	font-family: 'Lato', sans-serif;
+	-webkit-margin-before: 0.2em;
+	-webkit-margin-after: 0.67em;
+	font-size: 22px;
+	font-weight: 300;
+}
+
+.thin{
+	font-weight: 200;
+}
+
+.light{
+	font-weight: 300;
+}
+
+.bold{
+	font-weight: 700;
+}
+
+#nav{
+	width: 100%;
+	background-color: white;
+	position: fixed;
+	top: 66%;
+	z-index: 1;
+	min-height: 94px;
+}
+
+#title{
+	position: relative;
+	margin-left: 25px;
+	float: left;
+	width: 510px;
+}
+
+#menu{
+	position: absolute;
+	display: block;
+	padding-right: 25px;
+	bottom: 0;
+	margin-left: 25px;
+	background-color: #fdfdfd;
+}
+
+#menu ul { list-style-type: none; margin-top: 0;}
+#menu ul li {display: inline;}
+#menu ul li h2{text-decoration: none; text-align: right;}
+
+.menu_item{
+
+	position: relative;
+	margin-right: 25px;
+}
+
+#menu_toggle{
+	position: absolute;
+	background-image: url(resources/menu.png);
+	background-repeat: no-repeat;
+	margin-right: 25px;
+	width: 40px;
+	height: 30px;
+	right: 0;
+	bottom: 33%;
+	z-index: 1;
+}
+
+.section{
+	position: relative;
+	top: 0;
+	left: 0;
+}
+
+img.landing_img{
+	position: absolute;
+	top: 0;
+	}
+
+#wrapper{
+	width: 100%;
+}
+
+#landing{
+	overflow: hidden;
+	height: 100%;
+	position: relative;
+	margin-left: auto;
+	margin-right: auto;
+}
+
