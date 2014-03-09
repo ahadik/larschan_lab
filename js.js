@@ -1,9 +1,12 @@
 $(document).ready(function() {
 	$('img.landing_img').hide();
-	var $winheight = $(window).height(); 
-	var $winwidth = $(window).width();
+	var $winheight; 
+	var $winwidth;
+	var $bar_height = $winheight*.6;
 	var $title = document.getElementById("title");
 	var $menu = document.getElementById("menu");
+	var $intro = document.getElementById("intro");
+	var $intro_img = document.getElementById("erica_portrait");
 	var $menu_item = document.getElementsByClassName("menu_item");
 	var $bar = document.getElementById("nav");
 	var $toggle = document.getElementById("menu_toggle");
@@ -13,10 +16,25 @@ $(document).ready(function() {
 	var $title_width = $("#title").width();
 	var $menu_indicator = 1;
 	var $menu_toggled = 0;
+	var $document_scroll = 0;
+	
+	if( typeof( window.innerWidth ) == 'number' ) {
+	    //Non-IE
+	    $winwidth = window.innerWidth;
+	    $winheight = window.innerHeight;
+	} else if( document.documentElement && ( document.documentElement.clientWidth || document.documentElement.clientHeight ) ) {
+	    //IE 6+ in 'standards compliant mode'
+	    $winwidth = document.documentElement.clientWidth;
+	    $winheight = document.documentElement.clientHeight;
+	} else if( document.body && ( document.body.clientWidth || document.body.clientHeight ) ) {
+	    //IE 4 compatible
+	    $winwidth = document.body.clientWidth;
+	    $winheight = document.body.clientHeight;
+	}
 	
 	
 	if($winheight > 700){
-		$(".section").attr({height: $winheight, width: $winwidth})
+		$(".landing_section").attr({height: $winheight, width: $winwidth})
 	}
 	if($winwidth > $winheight*1.5) { 
 		$("img.landing_img").attr({width: $winwidth, left: 0});
@@ -37,7 +55,6 @@ $(document).ready(function() {
 	function scale_toggle(){
 		//Calculate how big the menu could be
 		var $menuSpace = $winwidth-535;
-		$bar.style.top = $winheight*.66+"px";
 		
 		//If there's not enough space for the menu, toggle it to mobile view
 		if($menuSpace <= 356){
@@ -61,7 +78,7 @@ $(document).ready(function() {
 				//reset what the menu width is
 				$menu_width = $("#menu").width();
 			}
-			$menu.style.height = $winheight*.66+94+"px";
+			$menu.style.height = $winheight*.6+94+"px";
 		}else{
 			if($menu_indicator === 1){
 				for(var $i=0; $i<$menu_item.length; $i++){
@@ -78,16 +95,38 @@ $(document).ready(function() {
 		}
 	}
 	
-	//Fade the home image in
+	//Fade the home image in, set the bar's height positon, call scale toggle
 	$('img.landing_img').fadeIn(2000);
+	$bar.style.top = $winheight*.6+"px";
+	$intro.style.height = ($winheight*.4)-98+"px";
+	$intro_img.style.top = (($winheight*.4)-98-250)/2+"px";
 	scale_toggle();
 	
+	
 	$(window).bind("resize", function(){
-		$winwidth = $(window).width();
-		$winheight = $(window).height();
+		
+		
+		if( typeof( window.innerWidth ) == 'number' ) {
+		    //Non-IE
+		    $winwidth = window.innerWidth;
+		    $winheight = window.innerHeight;
+		} else if( document.documentElement && ( document.documentElement.clientWidth || document.documentElement.clientHeight ) ) {
+		    //IE 6+ in 'standards compliant mode'
+		    $winwidth = document.documentElement.clientWidth;
+		    $winheight = document.documentElement.clientHeight;
+		} else if( document.body && ( document.body.clientWidth || document.body.clientHeight ) ) {
+		    //IE 4 compatible
+		    $winwidth = document.body.clientWidth;
+		    $winheight = document.body.clientHeight;
+		}
+		
+		$bar_height = $winheight*.6;
+		$intro_height = $winheight*.4;
+		$intro_img.style.top = (($winheight*.4)-98-250)/2+"px";
+		
 		$title_height = $("#title").height();
 		if($winheight > 700){
-			$(".section").attr({height: $winheight, width: $winwidth})
+			$(".landing_section").attr({height: $winheight, width: $winwidth})
 		}
 		if($winwidth > $winheight*1.5) {
 			$("img.landing_img").attr({
@@ -105,6 +144,27 @@ $(document).ready(function() {
 		
 		//Trigger the scale_toggle event to check if the nav bar needs to be toggled to mobile view
 		scale_toggle();
+	});
+	
+	
+	$(window).scroll(function(){
+		//Get delta scroll
+		var $scroll_amt = document.body.scrollTop-$document_scroll;
+		$document_scroll = document.body.scrollTop;
+		//If the window is scrolled between 0 and the vertical position of the nav bar
+
+		if((document.body.scrollTop>= 0)&&($document_scroll < $winheight*.6)){
+			var $bar_pos = parseFloat($bar.style.top);
+			$bar.style.top = ($bar_pos-$scroll_amt)+"px";
+
+		}
+		if($document_scroll > $winheight*.6){
+			$bar.style.top = "0px";
+		}
+		
+		if($document_scroll == 0){
+			$bar.style.top = $winheight*.6;			
+		}
 	});
 	
 	$("#menu_toggle").click(function(){
