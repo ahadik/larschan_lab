@@ -3,35 +3,36 @@
 		<title></title>
 		<script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
 		<script src="js.js" charset="utf-8"></script>
+		<script src="jquery.scrollTo-1.4.3.1-min.js" charset="utf-8"></script>
 		<link rel="stylesheet" href="style.css" title="Larchan Lab Styling" type="text/css" media="screen" charset="utf-8">
 	</head>
 	<body>
 		<div id="wrapper">
 			<div id="nav">
 				<div id="title">
-					<h1><span class="thin">The</span> <span class="bold">Larschan</span> <span class="light">Lab</span></h1>
+					<h1 onclick="$.scrollTo('#landing',500);"><a href="#landing"><span class="thin">The</span> <span class="bold">Larschan</span> <span class="light">Lab</span></a></h1>
 				</div>
 				<div id="menu_toggle">
 				</div>
 				<div id="menu">
 					<ul>
 						<li class="menu_item">
-							<h2>Team</h2>
+							<h2><a href="#press" onclick="$.scrollTo('#press',500);">Press</a></h2>
 						</li>
 						<li class="menu_item">
-							<h2>About</h2>
+							<h2><a href="#contact"  onclick="$.scrollTo('#contact',500);">Contact</a></h2>
 						</li>
 						<li class="menu_item">
-							<h2>Updates</h2>
+							<h2><a href="#publications" onclick="$.scrollTo('#publications',500);">Publications</a></h2>
 						</li>
 						<li class="menu_item">
-							<h2>Publications</h2>
+							<h2><a href="#updates" onclick="$.scrollTo('#updates',500);">Updates</a></h2>
 						</li>
 						<li class="menu_item">
-							<h2>Contact</h2>
+							<h2><a href="#about" onclick="$.scrollTo('#about',500);">About</a></h2>
 						</li>
 						<li class="menu_item">
-							<h2>Press</h2>
+							<h2><a href="#team" onclick="$.scrollTo('#team',500);">Team</a></h2>
 						</li>
 					</ul>
 				</div>

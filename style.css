@@ -7,7 +7,7 @@ body{
 p{
 	font-family: 'Lato', sans-serif;
 	font-size: 24px;
-	font-weight: 400;
+	font-weight: 300;
 }
 
 h1{
@@ -51,6 +51,12 @@ h2{
 	margin-left: 25px;
 	float: left;
 	width: 510px;
+	cursor: pointer;
+}
+
+#title h1 a{
+	text-decoration: none;
+	color: black;
 }
 
 #menu{
@@ -63,13 +69,18 @@ h2{
 }
 
 #menu ul { list-style-type: none; margin-top: 0;}
-#menu ul li {display: inline;}
-#menu ul li h2{text-decoration: none; text-align: right;}
+#menu ul li {display: inline; float: left;}
+#menu ul li h2{text-decoration: none; text-align: left;}
 
 .menu_item{
-
+	cursor: pointer;
 	position: relative;
 	margin-right: 25px;
+}
+
+.menu_item h2 a{
+	color: black;
+	text-decoration: none;
 }
 
 #menu_toggle{
