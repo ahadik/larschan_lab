@@ -1,0 +1,30 @@
+{
+  "name": "larschan",
+  "version": "0.0.1",
+  "description": "The Larschan Lab Website",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ahadik/larschan_lab.git"
+  },
+  "author": "Alexander Hadik",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ahadik/larschan_lab/issues"
+  },
+  "homepage": "https://github.com/ahadik/larschan_lab",
+  "dependencies": {
+	"mongodb": "1.4.x",
+    "install": "^0.1.7",
+	"socket.io": "~0.9.6",
+    "express": "3.4.0",
+    "ejs": "~0.8.4",
+    "mongoose": "~3.6.19",
+    "nodemailer": "1.0",
+    "express-device" : "0.3.10"
+  }
+}

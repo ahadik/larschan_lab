@@ -1,0 +1,19 @@
+members = [
+		{name : "Jason Dobson", title: "Postdoctoral Fellow", education: ["B.S. WPI","Ph.D UMass Worcester"], image: 'resources/jason.png'},
+		{name : "Leila Reider", title: "Postdoctoral Fellow", education: ["B.A. Reed College","Ph.D Brown University"], image: 'resources/leila.png'},
+		{name : "Marcela Soruco", title: "Graduate Student", education: ["B.A. San Diego State University","M.S. NYU"], image: 'resources/marcela.png'},
+		{name : "Jessica Chery", title: "Graduate Student", education: ["B.S. University of Rochester"], image: 'resources/jess_chery.png'},
+		{name : "Jennifer Johnson", title: "Graduate Student", education: ["B.A. William Paterson University"], image: 'resources/jenn.png'},
+		{name : "Emily Kaye", title: "Graduate Student", education: ["B.A. Colby College"], image: 'resources/emily.png'},
+		{name : "Jessica Feng", title: "Lab Manager", education: ["B.S. Brown University"], image: 'resources/jess.png'},
+		{name : "Jacob Bliss", title: "Lab Technician", education: ["B.S. Providence College"], image: 'resources/jacob.png'},
+		{name : "Sonia Boor", title: "Undergraduate", education: ["Brown University"], image: 'resources/sonia.png'},
+		{name : "Anna Zeidman", title: "Undergraduate", education: ["Brown University"], image: 'resources/anna.png'}
+]
+
+head = {
+		name : "Erica Larschan, Ph.D",
+		title : "Assistant Professor of Biology", 
+		department: "Department of Molecular Biology, Cellular Biology, & Biochemistry",
+		image : 'resources/erica.png'
+	}

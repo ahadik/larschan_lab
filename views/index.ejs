@@ -1,0 +1,211 @@
+<html ng-app>
+	<head>
+		<title>The Larschan Lab</title>
+		<link rel="stylesheet" href="public/stylesheets/style.css" title="Larchan Lab Styling" type="text/css" media="screen" charset="utf-8">
+		<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.0.4/angular.min.js"></script>
+		<script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+		<script src="/socket.io/socket.io.js"></script>
+		<script src="public/javascripts/moment.min.js"></script>
+		<script src="public/data/updates.json"></script>
+		<script src="public/data/publications.json"></script>
+		<script src="public/data/members.json"></script>
+		<script src="public/data/content.json"></script>
+		<script src="public/javascripts/form.js" charset="utf-8"></script>
+		<script src="public/javascripts/js.js" charset="utf-8"></script>
+		<script src="public/javascripts/angular_code.js" charset="utf-8"></script>
+		<script src="public/javascripts/jquery.scrollTo-1.4.3.1-min.js" charset="utf-8"></script>
+		
+	</head>
+	<body ng-controller='ContentController'>
+		<div id="wrapper">
+			<div id="formConfirm">
+				<p>Your message has been successfully delivered.</p>
+			</div>
+			<div id="nav">
+				<div id="title">
+					<h1 onclick="$.scrollTo('#landing',500); moveArrow(130);"><a href="#landing"><span class="thin">The</span> <span class="bold">Larschan</span> <span class="light">Lab</span></a></h1>
+				</div>
+				<div id="menu">
+					<ul>
+						<li class="menu_item" id="teamNav">
+							<h2><a href="#team" onclick="$.scrollTo('#team',500); moveArrow($('#teamNav').offset().left);">Team</a></h2>
+						</li>
+						<li class="menu_item" id="aboutNav">
+							<h2><a href="#about" onclick="$.scrollTo('#about',500); moveArrow($('#aboutNav').offset().left);">About</a></h2>
+						</li>
+						<li class="menu_item" id="updatesNav">
+							<h2><a href="#updates" onclick="$.scrollTo('#updates',500); moveArrow($('#updatesNav').offset().left);">Updates</a></h2>
+						</li>
+						<li class="menu_item" id="publicationsNav">
+							<h2><a href="#publications" onclick="$.scrollTo('#publications',500); moveArrow($('#publicationsNav').offset().left);">Publications</a></h2>
+						</li>
+						<li class="menu_item" id="contactNav">
+							<h2><a href="#contact"  onclick="$.scrollTo('#contact',500); moveArrow($('#contactNav').offset().left);">Contact</a></h2>
+						</li>
+						<li class="menu_item" id="pressNav">
+							<h2><a href="#press" onclick="$.scrollTo('#press',500); moveArrow($('#pressNav').offset().left);">Press</a></h2>
+						</li>
+					</ul>
+					
+				</div>
+				<div class="arrow-down" id="arrow" style="left: 150px;"></div>
+			</div>
+			<div id="landing" class="landing_section">
+				<div id="landingWrapper">
+					<div class="landing_img" id="splash">
+					</div>
+				</div>
+				<div id="intro">
+					<div class="content_wrapper">
+						<div id="erica_portrait">
+							<img src="{{head.image}}" class="erica"/>
+						</div>
+						<div id="erica_text">
+							<h3 class="intro_text">{{content.intro.header}}</h3>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div id="team" class="section">
+				<div class="content_wrapper section_padding">
+					<div id="larschan_bio" class="left_section">
+						<div id="team_photo">
+							<img src="resources/team.png" class="column_img"/>
+						</div>
+						<div class="tag_line">
+							<h4><span class="semibold">{{head.name}}<br>{{head.title}}</span><br><span class="light">{{head.department}}</span></h4>
+						</div>
+						<p>{{content.team.explanation}}</p>
+					</div>
+					<div class="right_section">
+						<div ng-repeat='member in members' class="small_element person">
+							<div class="person_pic">
+								<img src="{{member.image}}" />
+							</div>
+							<div class="person_name">
+								<p class="name"><span class="semibold">{{member.name}}</span><br><span class="light">{{member.title}}</span></p><p class="name"><span ng-repeat="school in member.education" class="thin">{{school}}<br></span></p>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div id="about" class="section">
+				<div class="content_wrapper">
+					<div id="lab_focus" class="left_section">
+						<img src="resources/bench.png" />
+						<div class="tag_line">
+							<h4><span class="semibold">The Erica Larschan Lab<br>Dosage Compensation in <i>Drosophila melanogaster</i></span></h4>
+						</div>
+						<p>How are genes precisely regulated throughout development to prevent disease? We study Drosophila dosage compensation to understand how chromatin domains form within the nucleus and function to spatially and temporally regulate genes.</p>
+					</div>
+					<div id="research" class="right_section">
+						<p class="section_header">{{content.about.headerOne}}</p>
+						<div class="image_wrap_small float_right">
+							<img src="resources/chromosomes.jpg" class="border_white" />
+							<p class="caption">I need a caption here!</p>
+						</div>
+						
+						<p class="section_body" ng-repeat="paragraph in content.about.bodyOne">{{paragraph}}</p>
+						<ol class="section_body">
+							<li ng-repeat="item in content.about.listOne">{{item}}</li>
+						</ol>
+						<p class="section_header">{{content.about.headerTwo}}</p>
+						<div class="image_wrap_medium float_left">
+							<video width="250" height="188" class="border_white" controls>
+								<source src="resources/video.mov">
+								Your browser does not support HTML 5 video.
+							</video>
+							<p class="caption">The speed of RNA Polymerase may be increased in the presence of the MSL Complex, suggesting a mechanism for upregulation.</p>
+						</div>
+						<p class="section_body" ng-repeat="paragraph in content.about.bodyTwo">{{paragraph}}</p>
+						<div class="list_indent">
+							<ol class="section_body">
+								<li ng-repeat="item in content.about.listTwo">{{item}}</li>
+							</ol>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div id="updates" class="section">
+				<div class="content_wrapper">
+					<div class="left_section">
+						<img src="resources/brown_logo_circle.png" />
+						<div class="tag_line">
+							<h4><span class="semibold">{{orderedUpdates[0].month}} {{orderedUpdates[0].year}}</h4>
+						</div>
+						<p class="section_body">{{orderedUpdates[0].content}}</p>
+					</div>
+					<div class="right_section">
+						<ul class="no_bullet">
+							<li ng-repeat='update in orderedUpdates.slice(1)' class="section_body updateItem"><span class="semibold date">{{update.month}} {{update.year}}</span><span class="update">{{update.content}}</span></li>
+						</ul>
+					</div>
+				</div>
+			</div>
+			<div id="publications" class="section">
+				<div class="content_wrapper">
+					<div class="section">
+						<ul class="no_bullet">
+							<li ng-repeat='publication in parsedPublications' class="section_body spaceList">{{publication[0]}} {{publication[1]}} <i>{{publication[2]}}</i> {{publication[3]}}</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+			<div id="contact" class="section">
+				<div class="content_wrapper">
+					<div class="centerWrapper">
+						<div class="left_section">
+							<h4><span class="semibold">Contact us at the Erica Larschan Lab</span></h4>
+							<h4><span class="light">Street Address</span></h4>
+							<h4><span class="light">Providence, RI</span></h4>
+							<h4><span class="light">02912</span></h4>
+							<br>
+							<h4><span class="light"><a href="">lab@email.com</a></span></h4>
+						</div>
+						<div class="right_section">
+							<form class="emailForm">
+								<input type="text" name="name" placeholder="Name" id="formname" required>
+								<input type="email" name="email" placeholder="Email Address" id="formemail" required>
+								<textarea name="message" maxlength="1000" placeholder="Message" id="formmessage" required></textarea>
+								<button type="submit" class="light" id="submitButton" onclick="emailSubmit();">Submit</button>
+							</form>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div id="press" class="smallSection">
+				<div class="content_wrapper">
+					<div class="threeColumn">
+						<img src="resources/brown_logo_desat.png" onmouseover="this.src='resources/brown_logo.png'" onmouseout="this.src='resources/brown_logo_desat.png'" alt="brown_logo_desat" width="150" height="207" />
+					</div>
+					<div class="threeColumn">
+						<img class="logoimg" src="resources/coaches_desat.png" onmouseover="this.src='resources/coaches.png'" onmouseout="this.src='resources/coaches_desat.png'"  alt="coaches_desat" width="200" height="87" />
+						<img class="logoimg" src="resources/livescience-desat.png" onmouseover="this.src='resources/live_science.png'" onmouseout="this.src='resources/livescience-desat.png'"  alt="livescience-desat" width="200" height="49" />
+					</div>
+					<div class="threeColumn">
+						<img class="logoimg" src="resources/TS_Black_NEWTag_white.png" onmouseover="this.src='resources/TS_Black_NEWTag_black.png'" onmouseout="this.src='resources/TS_Black_NEWTag_white.png'"  alt="TS_Black_NEWTag_white" width="200" height="47" />
+						<img class="logoimg" src="resources/WhiteHouse_Logo_no_sat.png" onmouseover="this.src='resources/WhiteHouse_Logo.png'" onmouseout="this.src='resources/WhiteHouse_Logo_no_sat.png'"  alt="WhiteHouse_Logo_no_sat" width="200" height="136" />
+					</div>
+				</div>
+			</div>
+			<div id="footer" class="smallSection">
+				<div id="footerTitle"><p>The Erica Larschan Lab</p></div>
+				<div id="footerNav">
+					<div class="footerLink"><a href="#team"><p>Team</p></a></div>
+					<div class="footerLink"><a href="#about"><p>About</p></a></div>
+					<div class="footerLink"><a href="#updates"><p>Updates</p></a></div>
+					<div class="footerLink"><a href="#publications"><p>Publications</p></a></div>
+					<div class="footerLink"><a href="#contact"><p>Contact</p></a></div>
+					<div class="footerLink"><a href="#press"><p>Press</p></a></div>
+				</div>
+				<div id="footerBrown">
+					<img src="resources/brown-footer.png" alt="brown-footer" width="100" height="50" />
+				</div>
+				<div id="footerCopyright">
+					<p>&#169; Copyright 2014<br>The Larschan Lab</p>
+				</div>
+				
+			</div>
+		</div>
+	</body>
+</html>

@@ -1,0 +1,26 @@
+pageContent = {
+	intro : {header : "How are genes precisely regulated throughout development to prevent disease? We study Drosophila dosage compensation to understand how chromatin domains form within the nucleus and function to spatially and temporally regulate genes."},
+	team : {
+		explanation: "Coordinate gene regulation is a fundamental process essential to all cells from the germ line to the immune system. Our long-term goal is to define how genes are identified for coordinate regulation, the key initial step in their regulation. Dosage compensation is one of the best model systems for studying this process because all of the genes on a single chromosome are specifically identified and co-regulated. Drosophila, like mammals, increase the transcript levels of a large number of diversely-regulated genes along the length of the single male X-chromosome precisely two-fold relative to each female X-chromosome."
+	},
+	about : {
+		headerOne : "How does a transcription complex precisely identify its targets within a complex eukaryotic genome?",
+		bodyOne : ["To determine how a transcription complex identifies its targets within a highly complex eukaryotic genome, we use dosage compensation as a model because an entire sex chromosome is specifically targeted. Due to the imbalance in sex chromosome number in heterogametic species, it is essential to upregulate the transcription of the single male X chromosome in all species. Dosage compensation is the process by which all of the genes along the length of the X chromosome are co-regulated.", "We study dosage compensation in Drosophila because this process involves only a single upregulatory step and there are many genetic and biochemical tools available. Prior to our recent work, it was not known how the Drosophila dosage compensation complex is tethered to the X-chromosome, the key first step in X-chromosome identification. Using a combination of genetic, genomic and biochemical approaches, we identified the previously unstudied zinc finger protein that we named CLAMP (Chromatin-linked adaptor for MSL proteins). The discovery of CLAMP provides the first opportunity to investigate the early stages of X-chromosome identification.", "Here are several key questions that we are currently investigating:"], 
+		listOne : ["How is the CLAMP protein enriched on the X-chromosome independent of MSL complex?", "How does CLAMP function together with chromatin marks and non-coding RNAs to distinguish the X-chromosome from autosomes in the early embryo?", "What is the non-sex specific role of CLAMP and how is it integrated with its role in recruiting the dosage compensation complex?"],
+		headerTwo : "How is transcriptional output modulated within a domain of coordinate gene regulation?",
+		bodyTwo : ["To understand the mechanism by which dosage compensation increases transcriptional output, we have used global run-on sequencing to map the location of engaged RNA Polymerase II in the presence and absence of the dosage compensation complex.", "We are currently investigating the following questions:"],
+		listTwo : ["How does MSL complex promote the progression of RNA Polymerase II through gene bodies?", "How does an increased density of RNA Polymerase II over gene bodies increase the amount of mRNA?"]
+	},
+	updates : {
+		
+	},
+	publications : {
+		
+	},
+	contact : {
+		
+	},
+	press : {
+		
+	}
+}
